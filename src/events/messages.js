@@ -9,7 +9,7 @@ module.exports = (client, instance) => {
         if (message.author.bot) return;
         const db = require("quick.db");
         const data = db.all().filter(x => x.ID.startsWith(`autoMsg_${message.channel.id}`));
-        if (data.length === 1) message.reply({ content: data[0].data });
+        if (data.length === 1) message.channel.send({ content: data[0].data });
         else return;
     });
 }
