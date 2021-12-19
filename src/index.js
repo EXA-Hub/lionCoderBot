@@ -16,6 +16,9 @@ const client = new Discord.Client({
 });
 
 client.on('ready', () => {
+    const dbOptions = {
+        keepAlive: true
+    };
     new WOKCommands(client, {
         commandsDir: path.join(__dirname, 'commands'),
         featuresDir: path.join(__dirname, 'events'),
@@ -26,7 +29,9 @@ client.on('ready', () => {
         ignoreBots: false,
         ephemeral: true,
         showWarns: true,
+        mongoUri: process.env.MONGOURI,
         debug: false,
+        dbOptions,
     }).setCategorySettings(
         require(path.join(__dirname, 'data/CategorySettings.json'))
     ).setDisplayName(
