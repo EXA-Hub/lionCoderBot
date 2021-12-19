@@ -17,7 +17,7 @@ const client = new Discord.Client({
 
 client.on('ready', () => {
     const dbOptions = {
-        keepAlive: true
+        keepAlive: false
     };
     new WOKCommands(client, {
         commandsDir: path.join(__dirname, 'commands'),
