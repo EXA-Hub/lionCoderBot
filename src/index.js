@@ -29,7 +29,7 @@ client.on('ready', () => {
         ignoreBots: false,
         ephemeral: true,
         showWarns: true,
-        mongoUri: process.env.MONGOURI,
+        mongoUri: process.env.MONGO_URI,
         debug: false,
         dbOptions,
     }).setCategorySettings(
